@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:aquaclense/createaccount.dart'; // Ensure this matches your file name
-
+import 'package:aquaclense/createaccount.dart';
+import 'package:aquaclense/home2.dart';
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
 
@@ -46,46 +46,45 @@ class _MagLoginState extends State<Loginpage> {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
-    // Validate email and password
+   
     if (email.isEmpty || password.isEmpty) {
       showCustomSnackbar(
           context, "Email and password cannot be empty. Please try again.", false);
       return;
     }
 
-    // Validate email format
+    
     final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
     if (!emailRegex.hasMatch(email)) {
       showCustomSnackbar(context, "Please enter a valid email address.", false);
       return;
     }
 
-    // Validate password length
     if (password.length < 6) {
       showCustomSnackbar(
           context, "Password must be at least 6 characters long.", false);
       return;
     }
 
-    // Proceed with login (uncomment and adjust as needed)
-    // Navigator.push(
-    //   context,
-    //   MaterialPageRoute(builder: (context) => const Mainhome()),
-    // );
-    showCustomSnackbar(context, "Login successful!", true); // Placeholder
+    
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Home2()),
+    );
+    showCustomSnackbar(context, "Login successful!", true); 
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center( // Center the entire content vertically
+      body: Center( 
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center, // Center children vertically
-            crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
+            mainAxisAlignment: MainAxisAlignment.center, 
+            crossAxisAlignment: CrossAxisAlignment.start, 
             children: [
               Text(
                 'Login to continue.',
@@ -165,7 +164,7 @@ class _MagLoginState extends State<Loginpage> {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: _login, // Call login function
+                  onPressed: _login, 
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 15),
                     shape: RoundedRectangleBorder(
@@ -180,7 +179,7 @@ class _MagLoginState extends State<Loginpage> {
                 ),
               ),
               SizedBox(height: 20),
-              Center( // Center the "Create an Account" text horizontally
+              Center( 
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
