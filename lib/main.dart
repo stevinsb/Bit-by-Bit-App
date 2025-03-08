@@ -1,4 +1,6 @@
 //import 'package:aquaclense/home1.dart';
+import 'package:aquaclense/analysis.dart';
+import 'package:aquaclense/mainhome.dart';
 import 'package:aquaclense/splashscreen.dart';
 import 'package:flutter/material.dart';
 

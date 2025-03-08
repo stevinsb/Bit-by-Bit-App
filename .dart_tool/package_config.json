@@ -62,6 +62,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "equatable",
+      "rootUri": "file:///C:/Users/STEVIN%20SANTHOSH%20BABY/AppData/Local/Pub/Cache/hosted/pub.dev/equatable-2.0.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "fading_edge_scrollview",
       "rootUri": "file:///C:/Users/STEVIN%20SANTHOSH%20BABY/AppData/Local/Pub/Cache/hosted/pub.dev/fading_edge_scrollview-3.0.0",
       "packageUri": "lib/",
@@ -78,6 +84,12 @@
       "rootUri": "file:///C:/Users/STEVIN%20SANTHOSH%20BABY/AppData/Local/Pub/Cache/hosted/pub.dev/ffi-2.1.3",
       "packageUri": "lib/",
       "languageVersion": "3.3"
+    },
+    {
+      "name": "fl_chart",
+      "rootUri": "file:///C:/Users/STEVIN%20SANTHOSH%20BABY/AppData/Local/Pub/Cache/hosted/pub.dev/fl_chart-0.67.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter",
@@ -266,6 +278,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "simple_gesture_detector",
+      "rootUri": "file:///C:/Users/STEVIN%20SANTHOSH%20BABY/AppData/Local/Pub/Cache/hosted/pub.dev/simple_gesture_detector-0.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///C:/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -294,6 +312,12 @@
       "rootUri": "file:///C:/Users/STEVIN%20SANTHOSH%20BABY/AppData/Local/Pub/Cache/hosted/pub.dev/string_scanner-1.3.0",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "table_calendar",
+      "rootUri": "file:///C:/Users/STEVIN%20SANTHOSH%20BABY/AppData/Local/Pub/Cache/hosted/pub.dev/table_calendar-3.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "term_glyph",
@@ -398,7 +422,7 @@
       "languageVersion": "3.4"
     }
   ],
-  "generated": "2025-03-08T16:16:35.485449Z",
+  "generated": "2025-03-08T19:15:20.786234Z",
   "generator": "pub",
   "generatorVersion": "3.6.1",
   "flutterRoot": "file:///C:/flutter",

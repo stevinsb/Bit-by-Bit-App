@@ -43,6 +43,8 @@ dependencies:
   carousel_slider: ^5.0.0
   video_player: ^2.9.1
   flutter_iconly: ^1.0.2
+  table_calendar: ^3.0.9
+  fl_chart: ^0.67.0
 
 
 dev_dependencies:
@@ -71,6 +73,7 @@ flutter:
     - assets/logo/abcd6.jpg
     - assets/logo/abcd7.jpg
     - assets/logo/aquaclense.mp4
+    - assets/logo/ocean.jpg
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

@@ -1,3 +1,6 @@
+import 'package:aquaclense/analysis.dart';
+import 'package:aquaclense/product1.dart';
+import 'package:aquaclense/product2.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -129,17 +132,54 @@ class _MainhomeState extends State<Mainhome> with TickerProviderStateMixin {
               title: "Analysis",
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => AnalysisPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Analysis()));
               },
             ),
-            _buildDrawerItem(
-              icon: Icons.production_quantity_limits,
-              title: "Product",
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ProductPage()));
-              },
+            ListTile(
+        leading: Icon(Icons.production_quantity_limits, color: Colors.blue[800]),
+        title: const Text(
+          "Product",
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+        ),
+        trailing: PopupMenuButton<String>(
+          icon: Icon(Icons.arrow_drop_down, color: Colors.blue[800]),
+          onSelected: (String value) {
+            Navigator.pop(context); // Close the drawer
+            switch (value) {
+              case 'Product 1':
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Product1()));
+                break;
+              case 'Product 2':
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Product2()));
+                break;
+              case 'Product 3':
+                //Navigator.push(context, MaterialPageRoute(builder: (context) => Product3Page()));
+                break;
+              case 'Product 4':
+                //Navigator.push(context, MaterialPageRoute(builder: (context) => Product4Page()));
+                break;
+            }
+          },
+          itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+            const PopupMenuItem<String>(
+              value: 'Product 1',
+              child: Text('Product 1'),
             ),
+            const PopupMenuItem<String>(
+              value: 'Product 2',
+              child: Text('Product 2'),
+            ),
+            const PopupMenuItem<String>(
+              value: 'Product 3',
+              child: Text('Product 3'),
+            ),
+            const PopupMenuItem<String>(
+              value: 'Product 4',
+              child: Text('Product 4'),
+            ),
+          ],
+        ),
+      ),
             _buildDrawerItem(
               icon: Icons.shopping_cart,
               title: "Buy",
