@@ -1,6 +1,10 @@
 import 'package:aquaclense/analysis.dart';
+import 'package:aquaclense/buy.dart';
 import 'package:aquaclense/product1.dart';
 import 'package:aquaclense/product2.dart';
+import 'package:aquaclense/product3.dart';
+import 'package:aquaclense/product4.dart';
+import 'package:aquaclense/sell.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -153,10 +157,10 @@ class _MainhomeState extends State<Mainhome> with TickerProviderStateMixin {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Product2()));
                 break;
               case 'Product 3':
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => Product3Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Product3()));
                 break;
               case 'Product 4':
-                //Navigator.push(context, MaterialPageRoute(builder: (context) => Product4Page()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Product4()));
                 break;
             }
           },
@@ -185,7 +189,7 @@ class _MainhomeState extends State<Mainhome> with TickerProviderStateMixin {
               title: "Buy",
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => BuyPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Buy()));
               },
             ),
             _buildDrawerItem(
@@ -193,7 +197,7 @@ class _MainhomeState extends State<Mainhome> with TickerProviderStateMixin {
               title: "Sell",
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SellPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Sell()));
               },
             ),
             _buildDrawerItem(

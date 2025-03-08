@@ -1,6 +1,9 @@
 //import 'package:aquaclense/home1.dart';
 import 'package:aquaclense/analysis.dart';
+import 'package:aquaclense/buy.dart';
+import 'package:aquaclense/contact.dart';
 import 'package:aquaclense/mainhome.dart';
+import 'package:aquaclense/sell.dart';
 import 'package:aquaclense/splashscreen.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Aquaclense',
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: Contact(),
     );
   }
 }
