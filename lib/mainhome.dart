@@ -29,7 +29,7 @@ class _ChatScreenState extends State<ChatScreen> {
     'is it safe for medical use?': 'Yes, AquaClense is designed with medical-grade filtration and safety certifications, making it safe and reliable for use in healthcare settings.',
     'malaria preventive measures':'Avoid mosquito bites,fumigation,sanitation',
     'hi':'hello how can I help you!!!',
-    'Aquaclense':'A venture started by 4 college students',
+    'aquaclense':'A venture started by 4 college students named Adharsh,Karthik,Stevin,Abhinav with many toils and hardwork , the product that is going to change the world is made',
     'how can milk be purified':'pasteurization','aqua cleanse electricity consumption':'750w',
 
     'default': 'Sorry, I didn’t understand that. Try asking about AquaClense features, pricing, or support!',
