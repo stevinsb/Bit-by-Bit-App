@@ -9,6 +9,144 @@ import 'package:aquaclense/sell.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+// ChatScreen class added here to avoid creating a separate file for simplicity
+class ChatScreen extends StatefulWidget {
+  @override
+  _ChatScreenState createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  final TextEditingController _messageController = TextEditingController();
+  final List<Map<String, String>> _messages = [];
+  final Map<String, String> _staticResponses = {
+    'what is aquaclense?': 'AquaClense is an innovative waste management system designed to clean stagnant and flowing water bodies using physics-based solutions.',
+    'how does it work?': 'AquaClense uses fluid dynamics and suction technology to channel waste into collection bins, tailored to the specific dimensions of water bodies.',
+    'price?': 'Pricing for AquaClense varies by model and customization. Please contact us for a detailed quote!',
+    'support': 'For support, please reach out to us via the Contact Us page or email us at support@aquaclense.com.',
+    'what is aquaclense in medical field': 'In the medical field, AquaClense provides advanced water purification and waste water management, ensuring sterile water for hospitals, clinics, and laboratories.',
+    'how does aquaclense help in hospitals?': 'AquaClense helps hospitals by purifying water to medical standards, removing contaminants, and managing medical waste water, reducing infection risks and ensuring compliance with health regulations.',
+    'medical waste water treatment?': 'AquaClense treats medical waste water by filtering out pathogens, chemicals, and biological hazards, making it safe for disposal or reuse in compliance with medical standards.',
+    'is it safe for medical use?': 'Yes, AquaClense is designed with medical-grade filtration and safety certifications, making it safe and reliable for use in healthcare settings.',
+    'malaria preventive measures':'Avoid mosquito bites,fumigation,sanitation',
+    'hi':'hello how can I help you!!!',
+    'Aquaclense':'A venture started by 4 college students',
+    'how can milk be purified':'pasteurization','aqua cleanse electricity consumption':'750w',
+
+    'default': 'Sorry, I didn’t understand that. Try asking about AquaClense features, pricing, or support!',
+  };
+
+  void _sendMessage() {
+    final message = _messageController.text.trim().toLowerCase();
+    if (message.isEmpty) return;
+
+    setState(() {
+      _messages.add({'sender': 'user', 'text': message});
+    });
+
+    _messageController.clear();
+
+    // Find a matching response or use the default
+    String response = _staticResponses['default']!;
+    for (var key in _staticResponses.keys) {
+      if (message.contains(key)) {
+        response = _staticResponses[key]!;
+        break;
+      }
+    }
+
+    setState(() {
+      _messages.add({'sender': 'bot', 'text': response});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Chat with AquaBot"),
+        backgroundColor: Colors.blue[800],
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: _messages.length,
+              itemBuilder: (context, index) {
+                final message = _messages[index];
+                final isUser = message['sender'] == 'user';
+                return Container(
+                  margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Row(
+                    mainAxisAlignment: isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
+                    children: [
+                      if (!isUser)
+                        const CircleAvatar(
+                          backgroundColor: Colors.blue,
+                          child: Text("A", style: TextStyle(color: Colors.white)),
+                        ),
+                      const SizedBox(width: 8),
+                      Flexible(
+                        child: Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: isUser ? Colors.blue[100] : Colors.grey[200],
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: Text(
+                            message['text']!,
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      if (isUser)
+                        const CircleAvatar(
+                          backgroundColor: Colors.grey,
+                          child: Text("U", style: TextStyle(color: Colors.white)),
+                        ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _messageController,
+                    decoration: InputDecoration(
+                      hintText: "Type your message...",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    onSubmitted: (_) => _sendMessage(),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                IconButton(
+                  icon: const Icon(Icons.send),
+                  color: Colors.blue,
+                  onPressed: _sendMessage,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _messageController.dispose();
+    super.dispose();
+  }
+}
+
 class Mainhome extends StatefulWidget {
   @override
   _MainhomeState createState() => _MainhomeState();
@@ -141,50 +279,50 @@ class _MainhomeState extends State<Mainhome> with TickerProviderStateMixin {
               },
             ),
             ListTile(
-        leading: Icon(Icons.production_quantity_limits, color: Colors.blue[800]),
-        title: const Text(
-          "Product",
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-        ),
-        trailing: PopupMenuButton<String>(
-          icon: Icon(Icons.arrow_drop_down, color: Colors.blue[800]),
-          onSelected: (String value) {
-            Navigator.pop(context); // Close the drawer
-            switch (value) {
-              case 'Product 1':
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Product1()));
-                break;
-              case 'Product 2':
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Product2()));
-                break;
-              case 'Product 3':
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Product3()));
-                break;
-              case 'Product 4':
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Product4()));
-                break;
-            }
-          },
-          itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-            const PopupMenuItem<String>(
-              value: 'Product 1',
-              child: Text('Product 1'),
+              leading: Icon(Icons.production_quantity_limits, color: Colors.blue[800]),
+              title: const Text(
+                "Product",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              ),
+              trailing: PopupMenuButton<String>(
+                icon: Icon(Icons.arrow_drop_down, color: Colors.blue[800]),
+                onSelected: (String value) {
+                  Navigator.pop(context); // Close the drawer
+                  switch (value) {
+                    case 'Product 1':
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Product1()));
+                      break;
+                    case 'Product 2':
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Product2()));
+                      break;
+                    case 'Product 3':
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Product3()));
+                      break;
+                    case 'Product 4':
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Product4()));
+                      break;
+                  }
+                },
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                  const PopupMenuItem<String>(
+                    value: 'Product 1',
+                    child: Text('Product 1'),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'Product 2',
+                    child: Text('Product 2'),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'Product 3',
+                    child: Text('Product 3'),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'Product 4',
+                    child: Text('Product 4'),
+                  ),
+                ],
+              ),
             ),
-            const PopupMenuItem<String>(
-              value: 'Product 2',
-              child: Text('Product 2'),
-            ),
-            const PopupMenuItem<String>(
-              value: 'Product 3',
-              child: Text('Product 3'),
-            ),
-            const PopupMenuItem<String>(
-              value: 'Product 4',
-              child: Text('Product 4'),
-            ),
-          ],
-        ),
-      ),
             _buildDrawerItem(
               icon: Icons.shopping_cart,
               title: "Buy",
@@ -421,6 +559,29 @@ class _MainhomeState extends State<Mainhome> with TickerProviderStateMixin {
               },
             ),
           ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatScreen()),
+          );
+        },
+       
+        backgroundColor: Colors.blue[800],
+     child: Image.asset(
+          'assets/logo/chatbot.jpg',
+          width: 50, // Adjust the size as needed
+          height: 50,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            return const Icon(
+              Icons.android, // Fallback to a default robot icon if the image fails to load
+              color: Colors.white,
+              size: 30,
+            );
+          },
         ),
       ),
     );
