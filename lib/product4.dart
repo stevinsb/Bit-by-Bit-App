@@ -208,7 +208,7 @@ class Product4 extends StatelessWidget {
                   // Image Section (Add your image here)
                   Center(
                     child: Image.asset(
-                      'assets/images/aquaclense_4.0.jpg', // Replace with your actual image path
+                      'assets/logo/stagnant.jpg', // Replace with your actual image path
                       height: 300,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
@@ -244,7 +244,7 @@ class Product4 extends StatelessWidget {
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.green[700],
-                            hintText: "{ message }",
+                            hintText: " message ",
                             hintStyle: const TextStyle(color: Colors.white70),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),

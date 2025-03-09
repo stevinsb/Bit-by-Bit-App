@@ -1,5 +1,6 @@
 import 'package:aquaclense/analysis.dart';
 import 'package:aquaclense/buy.dart';
+import 'package:aquaclense/contact.dart';
 import 'package:aquaclense/product1.dart';
 import 'package:aquaclense/product2.dart';
 import 'package:aquaclense/product3.dart';
@@ -205,7 +206,7 @@ class _MainhomeState extends State<Mainhome> with TickerProviderStateMixin {
               title: "Contact",
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ContactPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Contact()));
               },
             ),
           ],
@@ -298,17 +299,17 @@ class _MainhomeState extends State<Mainhome> with TickerProviderStateMixin {
                           ),
                           const SizedBox(height: 16),
                           Center(
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.blue[800],
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                              child: const Text("Learn More"),
-                            ),
+                            // child: ElevatedButton(
+                            //   onPressed: () {},
+                            //   style: ElevatedButton.styleFrom(
+                            //     backgroundColor: Colors.white,
+                            //     foregroundColor: Colors.blue[800],
+                            //     shape: RoundedRectangleBorder(
+                            //       borderRadius: BorderRadius.circular(20),
+                            //     ),
+                            //   ),
+                            //   //child: const Text("Learn More"),
+                            // ),
                           ),
                           const SizedBox(height: 24),
 

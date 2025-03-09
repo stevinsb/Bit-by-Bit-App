@@ -81,7 +81,7 @@ class _ContactPageState extends State<Contact> {
                       const Icon(
                         Icons.contact_mail,
                         size: 60,
-                        color: Colors.purple,
+                        color: Color.fromARGB(255, 101, 142, 184),
                       ),
                       const SizedBox(height: 16),
                       const Text(
@@ -171,7 +171,7 @@ class _ContactPageState extends State<Contact> {
                           : ElevatedButton(
                               onPressed: _submitQuery,
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.purple[400],
+                                backgroundColor: const Color.fromARGB(255, 101, 142, 184),
                                 padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                               ),
